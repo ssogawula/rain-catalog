@@ -50,9 +50,6 @@ public class CatalogElementControllerIT {
 	private CustomerRepository customerRepository;
 	
 	@Autowired
-	private CatalogElementRepository catalogElementRepository;
-	
-	@Autowired
 	private CatalogRepository catalogRepository;
 	
 	

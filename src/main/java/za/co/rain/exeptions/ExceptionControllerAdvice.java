@@ -21,4 +21,10 @@ public class ExceptionControllerAdvice {
 	public MessageDetail handleResourceNotFoundExceptionHandler(HttpServletRequest request, ResourceNotFoundException e) {
 		return new MessageDetail(e.getMessage(), request.getRequestURI());
 	}
+	
+	@ExceptionHandler(Exception.class)
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	public MessageDetail handleExceptionHandler(HttpServletRequest request, Exception e) {
+		return new MessageDetail(e.getMessage(), request.getRequestURI());
+	}
 }

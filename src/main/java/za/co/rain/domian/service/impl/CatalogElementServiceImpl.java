@@ -11,6 +11,7 @@ import za.co.rain.domian.LifeCycleStatus;
 import za.co.rain.domian.repositories.CatalogElementRepository;
 import za.co.rain.domian.repositories.CustomerRepository;
 import za.co.rain.domian.service.CatalogElementService;
+import za.co.rain.exeptions.ResourceNotFoundException;
 import za.co.rain.exeptions.ServiceLayerExeption;
 
 @Transactional
@@ -121,13 +122,9 @@ public class CatalogElementServiceImpl implements CatalogElementService {
 				catalogElement.setActive(true);
 				catalogElementRepository.save(catalogElement);
 				
-			} else if(catalogElement.getStatus() == LifeCycleStatus.RETIRED) {
-				
-				throw new ServiceLayerExeption("New customers are not allowed to buy this item");
 			}
 		} else {
-			
-			throw new ServiceLayerExeption(catalogElement.getName() +"is not sold yet.");
+			throw new ServiceLayerExeption(catalogElement.getName() +"is not on sale.");
 		}
 	}
 	
@@ -156,6 +153,6 @@ public class CatalogElementServiceImpl implements CatalogElementService {
 	
 	private CatalogElement getCatalogElementById(Long id) {
 		return catalogElementRepository.findById(id)
-				.orElseThrow(() -> new ServiceLayerExeption("Catalog element not found!"));
+				.orElseThrow(() -> new ResourceNotFoundException("Catalog element not found!"));
 	}
 }
