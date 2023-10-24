@@ -12,7 +12,7 @@ import za.co.rain.exeptions.ResourceNotFoundException;
 import za.co.rain.exeptions.ServiceLayerExeption;
 import za.co.rain.repositories.CatalogElementRepository;
 import za.co.rain.repositories.CustomerRepository;
-import za.co.rain.service.CatalogElementService;
+import za.co.rain.services.CatalogElementService;
 
 @Transactional
 @Service

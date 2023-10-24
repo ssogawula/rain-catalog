@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.rain.domian.CatalogElement;
 import za.co.rain.domian.Customer;
 import za.co.rain.domian.LifeCycleStatus;
-import za.co.rain.service.CatalogElementService;
+import za.co.rain.services.CatalogElementService;
 
 @RestController
 @RequestMapping("/api/v1")
