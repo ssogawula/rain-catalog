@@ -3,8 +3,9 @@ package za.co.rain.domian;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 /**
@@ -41,6 +42,7 @@ public class Catalog {
 	private LocalDate expiryDate;
 	
 	@OneToMany(mappedBy = "catalog",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
 	private Set<CatalogElement> catalogElements = new HashSet<CatalogElement>();
 
 	

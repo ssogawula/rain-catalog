@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 import za.co.rain.domian.CatalogElement;
 import za.co.rain.domian.LifeCycleStatus;
-import za.co.rain.domian.repositories.CatalogElementRepository;
-import za.co.rain.domian.repositories.CustomerRepository;
+import za.co.rain.repositories.CatalogElementRepository;
+import za.co.rain.repositories.CustomerRepository;
 
 @Component
 public class CatalogElementScheduler {

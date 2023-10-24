@@ -1,9 +1,11 @@
 package za.co.rain.domian;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -48,10 +50,11 @@ public class CatalogElement implements Serializable {
 
 	private Boolean active;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "CUSTOMER_CATALOG_ELEMENT", joinColumns = {
 			@JoinColumn(name = "CATALOG_ELEMENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CUSTOMER_ID") })
-	private Set<Customer> customers = new HashSet<Customer>();
+	@JsonIgnore
+	private Collection<Customer> customers = new HashSet<Customer>();
 
 	@ManyToOne
 	@JoinColumn(name = "CATALOG_ELEMENT_ID", insertable = false, updatable = false)
@@ -116,11 +119,11 @@ public class CatalogElement implements Serializable {
 		this.active = active;
 	}
 
-	public Set<Customer> getCustomers() {
+	public Collection<Customer> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(Set<Customer> customers) {
+	public void setCustomers(Collection<Customer> customers) {
 		this.customers = customers;
 	}
 }

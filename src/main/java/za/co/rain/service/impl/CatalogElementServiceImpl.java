@@ -1,4 +1,4 @@
-package za.co.rain.domian.service.impl;
+package za.co.rain.service.impl;
 
 import java.util.Optional;
 
@@ -8,11 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 import za.co.rain.domian.CatalogElement;
 import za.co.rain.domian.Customer;
 import za.co.rain.domian.LifeCycleStatus;
-import za.co.rain.domian.repositories.CatalogElementRepository;
-import za.co.rain.domian.repositories.CustomerRepository;
-import za.co.rain.domian.service.CatalogElementService;
 import za.co.rain.exeptions.ResourceNotFoundException;
 import za.co.rain.exeptions.ServiceLayerExeption;
+import za.co.rain.repositories.CatalogElementRepository;
+import za.co.rain.repositories.CustomerRepository;
+import za.co.rain.service.CatalogElementService;
 
 @Transactional
 @Service

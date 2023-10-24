@@ -1,4 +1,4 @@
-package za.co.rain.domian.controllers;
+package za.co.rain.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.rain.domian.CatalogElement;
 import za.co.rain.domian.Customer;
 import za.co.rain.domian.LifeCycleStatus;
-import za.co.rain.domian.service.CatalogElementService;
+import za.co.rain.service.CatalogElementService;
 
 @RestController
 @RequestMapping("/api/v1")

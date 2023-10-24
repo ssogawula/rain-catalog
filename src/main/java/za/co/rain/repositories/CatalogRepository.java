@@ -1,4 +1,4 @@
-package za.co.rain.domian.repositories;
+package za.co.rain.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

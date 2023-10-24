@@ -21,9 +21,9 @@ import za.co.rain.domian.Catalog;
 import za.co.rain.domian.CatalogElement;
 import za.co.rain.domian.Customer;
 import za.co.rain.domian.LifeCycleStatus;
-import za.co.rain.domian.repositories.CatalogElementRepository;
-import za.co.rain.domian.repositories.CustomerRepository;
-import za.co.rain.domian.service.impl.CatalogElementServiceImpl;
+import za.co.rain.repositories.CatalogElementRepository;
+import za.co.rain.repositories.CustomerRepository;
+import za.co.rain.service.impl.CatalogElementServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class CatalogElementServiceTest {

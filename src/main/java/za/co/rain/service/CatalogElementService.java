@@ -1,4 +1,4 @@
-package za.co.rain.domian.service;
+package za.co.rain.service;
 
 import za.co.rain.domian.CatalogElement;
 import za.co.rain.domian.LifeCycleStatus;
