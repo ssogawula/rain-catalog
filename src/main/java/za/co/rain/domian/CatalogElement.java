@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -53,11 +53,11 @@ public class CatalogElement implements Serializable {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "CUSTOMER_CATALOG_ELEMENT", joinColumns = {
 			@JoinColumn(name = "CATALOG_ELEMENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "CUSTOMER_ID") })
-	@JsonIgnore
 	private Collection<Customer> customers = new HashSet<Customer>();
 
 	@ManyToOne
 	@JoinColumn(name = "CATALOG_ELEMENT_ID", insertable = false, updatable = false)
+	@JsonBackReference
 	private Catalog catalog;
 
 	public CatalogElement() {

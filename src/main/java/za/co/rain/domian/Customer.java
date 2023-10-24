@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -31,7 +32,7 @@ public class Customer implements Serializable {
 	public Customer() {}
 	
 	@ManyToMany(mappedBy = "customers", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-	@JsonIgnore
+	@JsonBackReference
 	private Set<CatalogElement> catalogElements = new HashSet<CatalogElement>();
 	
 	public Long getId() {

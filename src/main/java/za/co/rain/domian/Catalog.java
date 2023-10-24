@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 /**
@@ -42,7 +42,7 @@ public class Catalog {
 	private LocalDate expiryDate;
 	
 	@OneToMany(mappedBy = "catalog",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonIgnore
+	@JsonManagedReference
 	private Set<CatalogElement> catalogElements = new HashSet<CatalogElement>();
 
 	
