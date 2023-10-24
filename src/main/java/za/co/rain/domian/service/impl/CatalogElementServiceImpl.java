@@ -113,15 +113,20 @@ public class CatalogElementServiceImpl implements CatalogElementService {
 			throw new ServiceLayerExeption("Retired catalog element is not sold to new customers.");
 		}
 		
-		if (catalogElement.getStatus() != LifeCycleStatus.LAUNCHED) {
+		if (catalogElement.getStatus() == LifeCycleStatus.LAUNCHED || catalogElement.getStatus() == LifeCycleStatus.RETIRED) {
 			
-			if (customerOptinal.isPresent() && catalogElement.getStatus() == LifeCycleStatus.RETIRED) {
+			if (customerOptinal.isPresent() ) {
 				Customer customer = customerOptinal.get();
 				catalogElement.getCustomers().add(customer);
 				catalogElement.setActive(true);
 				catalogElementRepository.save(catalogElement);
+				
+			} else if(catalogElement.getStatus() == LifeCycleStatus.RETIRED) {
+				
+				throw new ServiceLayerExeption("New customers are not allowed to buy this item");
 			}
 		} else {
+			
 			throw new ServiceLayerExeption(catalogElement.getName() +"is not sold yet.");
 		}
 	}
